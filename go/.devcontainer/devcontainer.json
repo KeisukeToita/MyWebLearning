@@ -1,0 +1,13 @@
+{
+    "name": "Go Learning Environment",
+    // 修正：1-2.22... ではなく 1-22... もしくは単純に 1 にします
+    "image": "mcr.microsoft.com/devcontainers/go:1", 
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "golang.go"
+            ]
+        }
+    },
+    "remoteUser": "vscode"
+}
