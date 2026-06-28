@@ -1,0 +1,17 @@
+services:
+  db:
+    image: postgres:15-alpine # 軽量なAlpineベース
+    container_name: my-infra-db
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: my_database
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+    volumes:
+      # ホストのinitdbフォルダを、コンテナの初期化用フォルダにマウント
+      - ./initdb:/docker-entrypoint-initdb.d
+      # データを永続化（コンテナを消してもデータが残るようにする）
+      - db-store:/var/lib/postgresql/data
+volumes:
+  db-store:
